@@ -1,12 +1,13 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { BsModalService } from 'ngx-bootstrap/modal';
 import { Evento } from '../_models/Evento';
 import { EventoService } from '../_services/Evento.service';
 import { defineLocale } from 'ngx-bootstrap/chronos';
 import { ptBrLocale } from 'ngx-bootstrap/locale';
 import { BsLocaleService } from 'ngx-bootstrap/datepicker';
-import { templateJitUrl } from '@angular/compiler';
+
+import { ToastrService } from 'ngx-toastr';
 
 defineLocale('pt-br', ptBrLocale);
 
@@ -35,9 +36,9 @@ export class EventosComponent implements OnInit {
 
   constructor(
     private eventoService: EventoService
-  , private modalService: BsModalService
   , private fb: FormBuilder
   , private localService: BsLocaleService
+  , private toastr: ToastrService
   ) {
     this.localService.use('pt-br');
    }
@@ -110,8 +111,9 @@ export class EventosComponent implements OnInit {
           (novoEvento: Evento) => {
             template.hide();
             this.getEventos();
+            this.toastr.success('Inserido com sucesso!');
           }, error => {
-            console.log(error);
+            this.toastr.error(`Erro ao tentar inserir: ${error}`);
           }
         );
       } else {
@@ -120,8 +122,9 @@ export class EventosComponent implements OnInit {
           () => {
             template.hide();
             this.getEventos();
+            this.toastr.success('Alterado com sucesso!');
           }, error => {
-            console.log(error);
+            this.toastr.error(`Erro ao tentar alterar: ${error}`);
           }
         );
       }
@@ -141,8 +144,9 @@ export class EventosComponent implements OnInit {
       () => {
           template.hide();
           this.getEventos();
+          this.toastr.success('Deletado com sucesso!');
         }, error => {
-          console.log(error);
+          this.toastr.error(`Erro ao tentar excluir: ${error}`);
         }
     );
   }
