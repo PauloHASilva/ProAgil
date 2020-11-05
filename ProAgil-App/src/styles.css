@@ -4,5 +4,5 @@
 @import '../node_modules/ngx-bootstrap/datepicker/bs-datepicker.css';
 
 #toast-container > div {
-    opacity:1;
+    opacity: 1;
 }

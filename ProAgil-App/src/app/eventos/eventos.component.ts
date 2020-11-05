@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { BsModalService } from 'ngx-bootstrap/modal';
 import { Evento } from '../_models/Evento';
 import { EventoService } from '../_services/Evento.service';
 import { defineLocale } from 'ngx-bootstrap/chronos';
@@ -17,6 +16,8 @@ defineLocale('pt-br', ptBrLocale);
   styleUrls: ['./eventos.component.scss']
 })
 export class EventosComponent implements OnInit {
+  titulo = 'Eventos';
+
   eventosFiltrados: Evento[];
   eventos: Evento[];
 
@@ -140,6 +141,10 @@ export class EventosComponent implements OnInit {
 
   // tslint:disable-next-line: typedef
   confirmeDelete(template: any) {
+    // template.hide();
+    // this.getEventos();
+    // this.toastr.success('Deletado com sucesso!');
+
     this.eventoService.deleteEvento(this.evento.id).subscribe(
       () => {
           template.hide();
@@ -159,7 +164,7 @@ export class EventosComponent implements OnInit {
         this.eventos = _eventos;
         this.eventosFiltrados = _eventos;
       }, error => {
-        console.log(error);
+        this.toastr.error(`Erro ao tentar carregar eventos: ${error}`);
       }
     );
   }

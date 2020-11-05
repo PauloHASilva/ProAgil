@@ -1,4 +1,4 @@
-import { DatePipe } from '@angular/common';
+import { DatePipe, formatDate } from '@angular/common';
 import { Pipe, PipeTransform } from '@angular/core';
 import { Constants } from '../utils/Constants';
 

@@ -1,3 +1,4 @@
+<app-titulo [titulo]="titulo"></app-titulo>
 <div class="d-flex">
   <div class="form-inline mr-auto">
     <div class="form-group mb-2">
@@ -45,7 +46,7 @@
       <td>{{evento.id}}</td>
       <td>{{evento.tema}}</td>
       <td>{{evento.local}}</td>
-      <td>{{evento.dataEvento | DateTimeFormatPipe}}</td>
+      <td>{{evento.dataEvento }}</td>
       <td>{{evento.qtdPessoas}}</td>
       <td>
         <div *ngIf="!evento.lotes.length">
@@ -68,10 +69,10 @@
       </td>
     </tr>
   </tbody>
-  <tfoot *ngIf="!eventos.length">
+  <tfoot *ngIf="!eventos">
     <tr>
       <td colspan="7" class="text-center">
-        <h4>Nenhum evento encontrado</h4>
+        <h4>Nenhum evento encontrado!</h4>
       </td>
     </tr>
   </tfoot>
@@ -169,8 +170,8 @@
           </div> 
         </form>
         <br>
-        <p>Form Value: {{registerForm.value | json}}</p>
-        <p>Form Status: {{registerForm.status | json}}</p>
+        <!-- <p>Form Value: {{registerForm.value | json}}</p>
+        <p>Form Status: {{registerForm.status | json}}</p> -->
       </div>
       <div class="modal-footer d-flex">
         <button class="btn btn-secondary" (click)="template.hide()">
