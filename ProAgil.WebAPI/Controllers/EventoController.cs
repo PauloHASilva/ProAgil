@@ -8,6 +8,7 @@ using ProAgil.WebAPI.Dtos;
 using System.Collections.Generic;
 using System.IO;
 using System.Net.Http.Headers;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ProAgil.WebAPI.Controllers
 {
@@ -69,7 +70,7 @@ namespace ProAgil.WebAPI.Controllers
                 return this.StatusCode(StatusCodes.Status500InternalServerError, $"Banco de dados falhou {ex.Message}");
             }
 
-            return BadRequest("Erro ao tentar realizar upload");
+            // return BadRequest("Erro ao tentar realizar upload");
 
         }
 
