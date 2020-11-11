@@ -7,7 +7,6 @@ import { ptBrLocale } from 'ngx-bootstrap/locale';
 import { BsLocaleService } from 'ngx-bootstrap/datepicker';
 
 import { ToastrService } from 'ngx-toastr';
-import { getMilliseconds } from 'ngx-bootstrap/chronos/utils/date-getters';
 
 defineLocale('pt-br', ptBrLocale);
 
@@ -116,7 +115,6 @@ export class EventosComponent implements OnInit {
 
     if (event.target.files && event.target.files.length) {
       this.file = event.target.files;
-      console.log(this.file);
     }
   }
 
@@ -206,6 +204,7 @@ export class EventosComponent implements OnInit {
 
   // tslint:disable-next-line: typedef
   getEventos() {
+    this.dataAtual = new Date().getMilliseconds().toString();
     this.eventoService.getAllEventos().subscribe(
       // tslint:disable-next-line: variable-name
       (_eventos: Evento[]) => {

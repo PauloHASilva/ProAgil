@@ -13,10 +13,8 @@ namespace ProAgil.WebAPI.Dtos
         [Range(1, 50000000, ErrorMessage = "O valor deve ser superior à R$ 1,00")]
         public decimal Preco { get; set; }
 
-        [Required(ErrorMessage = "O campo {0} é obrigatório")]
         public string DataInicio { get; set; }
 
-        [Required(ErrorMessage = "O campo {0} é obrigatório")]
         public string DataFim { get; set; }
 
         [Required(ErrorMessage = "O campo {0} é obrigatório")]

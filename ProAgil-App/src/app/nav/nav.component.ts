@@ -34,4 +34,8 @@ export class NavComponent implements OnInit {
     this.router.navigate(['/user/login']);
   }
 
+  // tslint:disable-next-line: typedef
+  userName() {
+    return sessionStorage.getItem('username');
+  }
 }

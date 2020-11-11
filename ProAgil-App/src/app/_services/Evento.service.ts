@@ -21,7 +21,7 @@ export class EventoService {
   }
 
   getEventoById(id: number): Observable<Evento> {
-    return this.http.get<Evento>(`${this.baseURL}/getById/${id}`);
+    return this.http.get<Evento>(`${this.baseURL}/${id}`);
   }
 
   // tslint:disable-next-line: typedef
@@ -31,6 +31,9 @@ export class EventoService {
 
   // tslint:disable-next-line: typedef
   postUpload(file: File, name: string) {
+    console.log(name);
+    console.log(file);
+
     const fileToUpload = file[0] as File;
     const formData = new FormData();
     formData.append('file', fileToUpload, name);
