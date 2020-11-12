@@ -1,3 +1,4 @@
+import { templateJitUrl, templateSourceUrl } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -19,7 +20,10 @@ export class LoginComponent implements OnInit {
 
   // tslint:disable-next-line: typedef
   ngOnInit() {
-    if (localStorage.getItem('token') != null) {
+    // if (localStorage.getItem('token') != null) {
+    //   this.router.navigate(['/dashboard']);
+    // }
+    if (this.authService.loggedIn()) {
       this.router.navigate(['/dashboard']);
     }
   }

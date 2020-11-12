@@ -3,6 +3,8 @@
 @import '../node_modules/@fortawesome/fontawesome-free/css/all.min.css';
 @import '../node_modules/ngx-bootstrap/datepicker/bs-datepicker.css';
 @import '../node_modules/ngx-bootstrap/tabs/tabs.css';
+/* @import '../node_modules/bootswatch/dist/lumen/bootstrap.min.css'; */
+@import '../node_modules/bootswatch/dist/yeti/bootstrap.min.css';
 
 #toast-container > div {
     opacity: 1;
